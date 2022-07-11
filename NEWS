@@ -1,5 +1,21 @@
 # Releases
 
+## grimoire-elk 0.103.0 - (2022-07-11)
+
+**New features:**
+
+ * Entry points to support enriching plugin mechanism\
+   This plugin mechanism allows ELK to use third-party enriching
+   backends. Developers only need to include the next snippet in their
+   package configuration and ELK will import them as any other core
+   backend.  ``` entry_points={"grimoire_elk": "mybackend =
+   package.subpackage:get_connectors"}, ``` **NOTE**: In the previous
+   example, `get_connectors` is a function that returns the backend
+   classes needed to enrich a datasource. Take the next snipped as an
+   example: ``` def get_connectors():     return {"backend": [MyBackend,
+   MyBackendOcean, MyBackendEnrich, MyBackendCommand]} ```
+
+
 ## GrimoireELK 0.102.0 - (2022-06-24)
 
 **Bug fixes:**
